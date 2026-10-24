@@ -1,57 +1,76 @@
 :root.theme-neutral {
-    --brand-primary: rgb(37, 37, 67);
-    --sidebar-bg: var(--brand-default-100);
+    --brand-primary: #0868ed;
+    --brand-primary-50: #edf6ff;
+    --brand-primary-100: #dceeff;
+    --brand-primary-300: #8fc3ff;
+    --brand-primary-500: #1680ff;
+    --brand-primary-600: #0758d6;
+    --brand-primary-700: #0647ad;
+    --brand-default-100: #f4f8ff;
+    --sidebar-bg: #f7fbff;
+    --topbar-bg: #ffffff;
+    --bg-color: #f4f8ff;
+    --font-color-base: #102b5c;
 
-    // --brand-primary: rgb(0, 13, 110);
-    --navigation-color: var(--font-color-base);
-    --navigation-color-hover: var(--font-color-base);
-    --navigation-color-active: var(--font-color-base);
+    --navigation-color: #244367;
+    --navigation-color-hover: #0758cc;
+    --navigation-color-active: #0758cc;
 
     --navigation-sub-color: var(--navigation-color);
     --navigation-sub-color-hover: var(--navigation-color-hover);
     --navigation-sub-color-active: var(--navigation-color-active);
 
     /* Sidebar Navigation */
-    --navigation-bg: var(--topbar-bg);
-    --navigation-bg-hover: rgba(0, 0, 0, 0.1);
-    --navigation-bg-active: rgba(0, 0, 0, 0.1);
+    --navigation-bg: #ffffff;
+    --navigation-bg-hover: #eaf3ff;
+    --navigation-bg-active: #e2efff;
 
-    --navigation-sub-bg: rgba(0, 0, 0, 0.1);
+    --navigation-sub-bg: #f7fbff;
     --navigation-sub-bg-hover: var(--navigation-bg-hover);
     --navigation-sub-bg-active: var(--navigation-bg-active);
 
-    --navigation-border-color: var(--navigation-bg-hover);
+    --navigation-border-color: #c9dcf7;
 
-    --navsidebar-bg: var(--sidebar-bg);
-    --navsidebar-bg-hover: var(--navigation-bg-hover);
-    --navsidebar-bg-active: var(--navigation-bg-active);
+    --navsidebar-bg: #f7fbff;
+    --navsidebar-bg-hover: #eaf3ff;
+    --navsidebar-bg-active: #e2efff;
 
-    --navsidebar-sub-bg: rgba(0, 0, 0, 0.1);
-    --navsidebar-sub-bg-hover: var(--navigation-bg-hover);
-    --navsidebar-sub-bg-active: var(--navigation-bg-active);
-    --navsidebar-sub-bg-header: rgba(0, 0, 0, 0.1);
-    --navsidebar-sub-bg-collapsed: var(--brand-primary-50);
+    --navsidebar-sub-bg: #f4f8ff;
+    --navsidebar-sub-bg-hover: #eaf3ff;
+    --navsidebar-sub-bg-active: #e2efff;
+    --navsidebar-sub-bg-header: #edf6ff;
+    --navsidebar-sub-bg-collapsed: #edf6ff;
 
-    --navsidebar-border-color: var(--border-color-default);
-    --navsidebar-shadow: 0 0 1px rgb(0 0 0 / 14%), 1px 1px 1px rgba(83, 83, 83, 0.28);
+    --navsidebar-border-color: #c9dcf7;
+    --navsidebar-shadow: 0 8px 24px rgba(37, 89, 160, 0.08);
 
     --navsidebar-font-size: var(--font-size-default);
     --navsidebar-sub-font-size: var(--font-size-small);
-    --navsidebar-glyph-size: 20px;
+    --navsidebar-glyph-size: 18px;
 
-    --navsidebar-color: var(--navigation-color);
-    --navsidebar-color-hover: var(--navigation-color-hover);
-    --navsidebar-color-active: var(--navigation-color-active);
+    --navsidebar-color: #244367;
+    --navsidebar-color-hover: #0758cc;
+    --navsidebar-color-active: #0758cc;
 
-    --navsidebar-sub-color: var(--navigation-color);
-    --navsidebar-sub-color-hover: var(--navigation-color-hover);
-    --navsidebar-sub-color-active: var(--navigation-color-active);
+    --navsidebar-sub-color: var(--navsidebar-color);
+    --navsidebar-sub-color-hover: var(--navsidebar-color-hover);
+    --navsidebar-sub-color-active: var(--navsidebar-color-active);
 
-    --navsidebar-width-closed: 52px;
+    --navsidebar-width-closed: 56px;
     --navsidebar-width-open: 232px;
-    --navsidebar-toggle-size: 32px;
+    --navsidebar-toggle-size: 36px;
 
-    --border-radius-s: 0;
-    --border-radius-m: 1px;
-    --border-radius-l: 2px;
+    --border-radius-s: 6px;
+    --border-radius-m: 10px;
+    --border-radius-l: 16px;
+
+    --border-color-default: #c9dcf7;
+
+    --form-input-border-radius: 10px;
+    --form-input-height: 42px;
+}
+
+:root {
+    --main-panel-bg: #ffffff;
+    --main-panel-shadow: 0 12px 32px rgba(37, 89, 160, 0.12);
 }

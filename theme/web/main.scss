@@ -1,3 +1,915 @@
+
+
+
+
 @import "custom-variables";
 @import "theme-dark";
 @import "theme-neutral";
+
+:root {
+    --weather-ink: #102b5c;
+    --weather-blue: #0868ed;
+    --weather-sky: #eaf4ff;
+    --weather-surface: #ffffff;
+    --weather-muted: #526987;
+    --weather-line: #c9dcf7;
+    --weather-shadow: 0 12px 32px rgba(37, 89, 160, 0.12);
+}
+
+html,
+body {
+    min-height: 100%;
+    background: #f4f8ff;
+    color: var(--weather-ink);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body:has(.mx-name-layoutGrid1) .mx-scrollcontainer.mx-scrollcontainer-fixed {
+    background: #edf5ff;
+}
+
+body:has(.mx-name-layoutGrid1) .mx-scrollcontainer-left {
+    display: none !important;
+}
+
+body:has(.mx-name-layoutGrid1) .mx-scrollcontainer-center {
+    width: 100% !important;
+    flex: 1 1 100% !important;
+    margin-left: 0 !important;
+}
+
+body:has(.mx-name-layoutGrid1) .region-topbar {
+    position: relative;
+    z-index: 5;
+    min-height: 38px;
+    height: 38px;
+    padding: 0;
+    overflow: visible;
+    background:
+        radial-gradient(ellipse at 18% 120%, rgba(255, 255, 255, 0.94) 0 12%, transparent 42%),
+        radial-gradient(ellipse at 72% 140%, rgba(255, 255, 255, 0.78) 0 15%, transparent 45%),
+        linear-gradient(105deg, #d8ecff, #f5faff 56%, #d8ebff);
+    border: 0;
+}
+
+body:has(.mx-name-layoutGrid1) .region-topbar .topbar-content {
+    position: relative;
+    min-height: 38px;
+    height: 38px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+}
+
+body:has(.mx-name-layoutGrid1) .region-topbar .topbar-content > .toggle-btn,
+body:has(.mx-name-layoutGrid1) .region-topbar .navbar-brand,
+body:has(.mx-name-layoutGrid1) .region-topbar .mx-name-staticImage1 {
+    display: none !important;
+}
+
+body:has(.mx-name-layoutGrid1) .region-topbar .mx-name-dataView1 {
+    position: absolute;
+    top: 2px;
+    right: 14px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+body:has(.mx-name-layoutGrid1) .region-topbar .mx-name-dataView1 > .mx-dataview-content {
+    display: flex;
+    align-items: center;
+}
+
+body:has(.mx-name-layoutGrid1) .region-topbar .mx-name-dataView1 .form-group {
+    margin: 0;
+}
+
+body:has(.mx-name-layoutGrid1) .region-topbar .widget-combobox-input-container {
+    min-height: 28px;
+    padding: 0 8px;
+    color: #244367;
+    background: rgba(255, 255, 255, 0.45);
+    border: 0;
+    box-shadow: none;
+    font-size: 10px;
+}
+
+body:has(.mx-name-layoutGrid1) .region-topbar .widget-combobox-caption-text,
+body:has(.mx-name-layoutGrid1) .region-topbar .widget-combobox-input {
+    color: #244367;
+    font-size: 10px;
+}
+
+body:has(.mx-name-layoutGrid1) .mx-name-feedback1 {
+    display: none !important;
+}
+
+body:has(.mx-name-layoutGrid1) .mx-name-dataView {
+    width: 100%;
+    flex: 1 1 100%;
+    min-width: 0;
+}
+
+body:has(.mx-name-layoutGrid1) .mx-name-dataView > .mx-dataview-content {
+    width: 100%;
+}
+
+body,
+.mx-scrollcontainer,
+.mx-scrollcontainer-center,
+.mx-scrollcontainer-middle,
+.mx-scrollcontainer-wrapper,
+.mx-layout,
+.mx-layoutcontainer {
+    background-color: #f4f8ff;
+}
+
+.region-topbar,
+.topbar-wrapper,
+.region-topbar .topbar-content {
+    box-sizing: border-box;
+    min-height: 64px;
+    padding: 0 24px;
+    color: var(--weather-ink);
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--weather-line);
+}
+
+.topbar-wrapper .navbar-brand,
+.region-topbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.topbar-wrapper .navbar-brand img,
+.region-topbar .navbar-brand img {
+    display: block;
+    max-height: 38px;
+    width: auto;
+}
+
+.topbar-wrapper .mx-name-menuBar2 a,
+.region-topbar .mx-navbar a {
+    color: var(--weather-ink) !important;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.region-sidebar {
+    color: var(--weather-ink);
+    background: #f7fbff;
+    border-right: 1px solid var(--weather-line);
+    box-shadow: 4px 0 18px rgba(37, 89, 160, 0.06);
+}
+
+.region-sidebar .mx-navigationtree a {
+    margin: 4px 8px;
+    padding: 10px 12px;
+    color: #244367;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background-color 160ms ease, color 160ms ease;
+}
+
+.region-sidebar .mx-navigationtree a:hover,
+.region-sidebar .mx-navigationtree .active a {
+    color: #0758cc;
+    background: #e2efff;
+}
+
+.region-sidebar .mx-navigationtree .active a {
+    box-shadow: inset 3px 0 0 var(--weather-blue);
+}
+
+.mx-name-layoutGrid1 {
+    box-sizing: border-box;
+    width: min(100% - 36px, 1180px);
+    margin: 12px auto 24px;
+    padding: 0 !important;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.mx-name-layoutGrid1 > .row {
+    margin: 0;
+}
+
+.mx-name-layoutGrid1 > .row > [class*="col-"] {
+    padding: 0;
+}
+
+.mx-name-layoutGrid1 .mx-name-container1 {
+    position: relative;
+    padding: 8px 0 0;
+    background:
+        radial-gradient(ellipse at 12% 0%, rgba(255, 255, 255, 0.94) 0 14%, transparent 52%),
+        linear-gradient(110deg, #dceeff 0%, #f7fbff 57%, #eaf4ff 100%);
+}
+
+.mx-name-layoutGrid1 .mx-name-text1 {
+    margin: 0 0 2px;
+    color: var(--weather-ink);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.mx-name-layoutGrid1 .mx-name-text1::before {
+    margin-right: 8px;
+    color: var(--weather-blue);
+    content: "\2601";
+    font-size: 25px;
+}
+
+.mx-name-layoutGrid1 .mx-name-text2 {
+    margin: 0 0 12px;
+    color: #526987;
+    font-size: 13px;
+}
+
+.mx-name-container2 {
+    max-width: 100%;
+    margin: 0 0 12px;
+}
+
+.mx-name-layoutGrid2 > .row {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    margin: 0;
+}
+
+.mx-name-layoutGrid2 > .row > [class*="col-"] {
+    padding: 0;
+}
+
+.mx-name-layoutGrid2 > .row > [class*="col-"]:first-child {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0;
+}
+
+.mx-name-layoutGrid2 > .row > [class*="col-"]:last-child {
+    flex: 0 0 120px !important;
+    width: 120px !important;
+    max-width: 120px !important;
+}
+
+.mx-name-textBox1 {
+    margin: 0;
+}
+
+.mx-name-textBox1 .control-label {
+    display: none;
+}
+
+.mx-name-textBox1 .form-control {
+    box-sizing: border-box;
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    height: 44px;
+    padding: 0 14px;
+    color: var(--weather-ink);
+    background: #ffffff;
+    border: 1px solid #bfd4f2;
+    border-radius: 10px;
+    box-shadow: none;
+    font-size: 14px;
+}
+
+.mx-name-textBox1 .form-control::placeholder {
+    color: #7489a5;
+}
+
+.mx-name-actionButton3 {
+    width: 100%;
+    height: 44px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1680ff, #0758d6);
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 14px rgba(8, 104, 237, 0.2);
+    font-size: 14px;
+    font-weight: 700;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.mx-name-actionButton3:hover,
+.mx-name-actionButton3:focus {
+    color: #ffffff;
+    background: #0758d6;
+    box-shadow: 0 7px 18px rgba(8, 104, 237, 0.25);
+    transform: translateY(-1px);
+}
+
+.mx-name-dataView1,
+.mx-name-dataView1 > .mx-dataview-content,
+.mx-name-dataView1 > .mx-dataview-controls {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.mx-name-dataView {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.mx-name-dataView > .mx-dataview-content {
+    display: grid;
+    position: relative;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.7fr) minmax(180px, 0.85fr);
+    grid-template-rows: 26px 48px 30px 24px;
+    gap: 2px 14px;
+    align-items: stretch;
+    min-height: 128px;
+    margin-bottom: 34px;
+    padding: 12px 16px 8px;
+    color: #ffffff;
+    background:
+        radial-gradient(ellipse at 4% 100%, rgba(255, 188, 103, 0.72) 0 7%, transparent 28%),
+        radial-gradient(ellipse at 97% 5%, rgba(197, 225, 255, 0.7) 0 5%, transparent 22%),
+        linear-gradient(110deg, #2d83d9 0%, #1d69c2 51%, #77b0f6 100%);
+    border: 1px solid #9fc5f7;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(24, 87, 163, 0.18);
+}
+
+.mx-name-dataView .mx-name-textBox2 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.mx-name-dataView .mx-name-textBox3 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.mx-name-dataView .mx-name-textBox6 {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    align-self: center;
+}
+
+.mx-name-dataView .mx-name-textBox11 {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.42) !important;
+}
+
+.mx-name-dataView .mx-name-textBox7 {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.mx-name-dataView .mx-name-textBox4 {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.mx-name-dataView .mx-name-textBox5 {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+.mx-name-dataView .mx-name-textBox8 {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.mx-name-dataView .mx-name-textBox9 {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.mx-name-dataView .mx-name-textBox10 {
+    display: none !important;
+}
+
+.mx-name-dataView > .mx-dataview-content > .mx-name-textBox10 {
+    display: none !important;
+}
+
+.mx-name-dataView .form-group {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    min-width: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #ffffff;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none;
+}
+
+.mx-name-dataView .form-group > [class*="col-"] {
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+}
+
+.mx-name-dataView .mx-name-textBox2,
+.mx-name-dataView .mx-name-textBox3 {
+    display: block !important;
+    padding: 0 2px !important;
+    background: transparent;
+    border: 0;
+}
+
+.mx-name-dataView .mx-name-textBox2 .control-label,
+.mx-name-dataView .mx-name-textBox3 .control-label,
+.mx-name-dataView .mx-name-textBox6 .control-label,
+.mx-name-dataView .mx-name-textBox11 .control-label {
+    display: none;
+}
+
+.mx-name-dataView .control-label {
+    display: block;
+    width: auto !important;
+    max-width: none !important;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 11px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.mx-name-dataView .form-control,
+.mx-name-dataView input[readonly],
+.mx-name-dataView .form-control-static {
+    display: block;
+    width: auto;
+    max-width: none;
+    grid-column: 2;
+    justify-self: end;
+    height: auto;
+    min-height: 0;
+    padding: 2px 0 0;
+    color: #ffffff;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.mx-name-dataView .mx-name-textBox2 .form-control,
+.mx-name-dataView .mx-name-textBox3 .form-control {
+    padding-top: 0;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.mx-name-dataView .mx-name-textBox2 .form-control-static {
+    grid-column: 1;
+    justify-self: start;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.mx-name-dataView .mx-name-textBox3 .form-control-static {
+    justify-self: start;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.mx-name-dataView .mx-name-textBox6 {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.mx-name-dataView .mx-name-textBox6 > [class*="col-"],
+.mx-name-dataView .mx-name-textBox11 > [class*="col-"],
+.mx-name-dataView .mx-name-textBox12 > [class*="col-"] {
+    grid-column: 1 / -1;
+    width: 100% !important;
+}
+
+.mx-name-dataView .mx-name-textBox6 .form-control,
+.mx-name-dataView .mx-name-textBox6 .form-control-static {
+    grid-column: 1 / 3;
+    justify-self: start;
+    padding: 0;
+    color: #ffffff;
+    font-size: clamp(36px, 5vw, 54px);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1;
+}
+
+.mx-name-dataView .mx-name-textBox7 .control-label {
+    display: inline;
+    grid-column: 1;
+    justify-self: start;
+    padding-right: 4px;
+}
+
+.mx-name-dataView .mx-name-textBox7 .form-control {
+    display: inline-block;
+    grid-column: 2;
+    width: auto;
+    padding-top: 0;
+}
+
+.mx-name-dataView .mx-name-textBox8,
+.mx-name-dataView .mx-name-textBox9,
+.mx-name-dataView .mx-name-textBox4,
+.mx-name-dataView .mx-name-textBox5 {
+    position: relative;
+    padding-left: 28px !important;
+}
+
+.mx-name-dataView .mx-name-textBox8 .form-control,
+.mx-name-dataView .mx-name-textBox9 .form-control,
+.mx-name-dataView .mx-name-textBox4 .form-control,
+.mx-name-dataView .mx-name-textBox5 .form-control {
+    text-align: right;
+}
+
+.mx-name-dataView .mx-name-textBox8::before,
+.mx-name-dataView .mx-name-textBox9::before,
+.mx-name-dataView .mx-name-textBox4::before,
+.mx-name-dataView .mx-name-textBox5::before {
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 18px;
+}
+
+.mx-name-dataView .mx-name-textBox8::before {
+    content: "\25C8";
+}
+
+.mx-name-dataView .mx-name-textBox9::before {
+    content: "\224B";
+}
+
+.mx-name-dataView .mx-name-textBox4::before,
+.mx-name-dataView .mx-name-textBox5::before {
+    content: "\2295";
+}
+
+.mx-name-dataView .mx-name-textBox11 .form-control {
+    grid-column: 1 / 3;
+    justify-self: center;
+    padding: 0;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mx-name-dataView .mx-name-textBox11 .form-control-static {
+    grid-column: 1 / 3;
+    justify-self: center;
+    padding: 0;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mx-name-dataView .mx-name-textBox12 {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mx-name-dataView .mx-name-textBox12 .control-label {
+    display: none;
+}
+
+.mx-name-dataView .mx-name-textBox12 .form-control {
+    padding: 0;
+    color: #ffca28;
+    font-size: 34px;
+    line-height: 1;
+    text-align: center;
+}
+
+.mx-name-dataView .mx-name-textBox12 .form-control-static {
+    grid-column: 1 / 3;
+    justify-self: center;
+    padding: 0;
+    color: #ffca28;
+    font-size: 34px;
+    line-height: 1;
+    text-align: center;
+}
+
+.mx-name-dataView .mx-name-datePicker1 {
+    position: absolute;
+    right: 0;
+    bottom: -34px;
+    left: 0;
+    display: flex !important;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    min-height: 28px;
+    margin: 0 !important;
+    padding: 2px 12px !important;
+    color: #183a67;
+    background: #d8e8ff !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    box-shadow: none;
+}
+
+.mx-name-dataView .mx-name-datePicker1 .form-control-static {
+    grid-column: 2;
+    justify-self: start;
+}
+
+.mx-name-dataView .mx-name-datePicker1 .control-label {
+    margin: 0 6px 0 0;
+    color: #244367;
+    font-size: 11px;
+}
+
+.mx-name-dataView .mx-name-datePicker1 .form-control {
+    padding: 0;
+    color: #183a67;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+
+.mx-name-layoutGrid3 {
+    box-sizing: border-box;
+    width: min(100% - 36px, 1120px);
+    min-height: min(620px, calc(100vh - 100px));
+    margin: 24px auto;
+    padding: clamp(32px, 7vw, 84px) clamp(24px, 7vw, 88px) 32px;
+    overflow: hidden;
+    color: var(--weather-ink);
+    background:
+        radial-gradient(ellipse at 72% 16%, rgba(255, 255, 255, 0.9) 0 5%, transparent 19%),
+        radial-gradient(ellipse at 84% 30%, rgba(255, 255, 255, 0.7) 0 6%, transparent 22%),
+        radial-gradient(ellipse at 65% 40%, rgba(255, 255, 255, 0.55) 0 8%, transparent 26%),
+        linear-gradient(160deg, #8ccaff 0%, #d9edff 45%, #f5faff 100%);
+    border: 1px solid #bfdaf9;
+    border-radius: 18px;
+    box-shadow: var(--weather-shadow);
+}
+
+.mx-name-layoutGrid3 > .row {
+    margin: 0;
+}
+
+.mx-name-layoutGrid3 > .row > [class*="col-"] {
+    padding: 0;
+}
+
+.mx-name-layoutGrid3 .mx-name-text1 {
+    margin: 0 0 14px;
+    color: #173766;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.mx-name-layoutGrid3 .mx-name-text3 {
+    margin: 0 0 10px;
+    color: #102b5c;
+    font-size: clamp(34px, 5vw, 54px);
+    font-weight: 750;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+}
+
+.mx-name-layoutGrid3 .mx-name-text2 {
+    max-width: 490px;
+    margin: 0 0 24px;
+    color: #294b74;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.mx-name-layoutGrid3 .mx-name-actionButton1 {
+    min-height: 44px;
+    padding: 0 22px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1680ff, #0758d6);
+    border: 0;
+    border-radius: 24px;
+    box-shadow: 0 7px 16px rgba(8, 104, 237, 0.22);
+    font-weight: 700;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.mx-name-layoutGrid3 .mx-name-actionButton1:hover,
+.mx-name-layoutGrid3 .mx-name-actionButton1:focus {
+    color: #ffffff;
+    box-shadow: 0 10px 20px rgba(8, 104, 237, 0.28);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 760px) {
+    .mx-name-layoutGrid1,
+    .mx-name-layoutGrid3 {
+        width: calc(100% - 20px);
+        margin: 12px auto 20px;
+        border-radius: 14px;
+    }
+
+    .mx-name-layoutGrid1 .mx-name-container1 {
+        padding: 18px 0 0;
+    }
+
+    .mx-name-layoutGrid1 .mx-name-text1 {
+        font-size: 23px;
+    }
+
+    .mx-name-dataView {
+        padding: 0;
+    }
+
+    .mx-name-dataView > .mx-dataview-content {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr) minmax(145px, 0.9fr);
+        grid-template-rows: 26px 44px 28px 26px;
+        gap: 2px 10px;
+        min-height: 140px;
+        padding: 12px;
+    }
+
+    .mx-name-dataView .mx-name-textBox2 {
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+
+    .mx-name-dataView .mx-name-textBox3 {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .mx-name-dataView .mx-name-textBox6 {
+        grid-column: 1;
+        grid-row: 2 / 4;
+    }
+
+    .mx-name-dataView .mx-name-textBox11 {
+        grid-column: 2;
+        grid-row: 2 / 4;
+        border-right: 1px solid rgba(255, 255, 255, 0.42) !important;
+    }
+
+    .mx-name-dataView .mx-name-textBox12 {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .mx-name-dataView .mx-name-textBox7 {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .mx-name-dataView .mx-name-textBox8 {
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    .mx-name-dataView .mx-name-textBox9 {
+        grid-column: 3;
+        grid-row: 3;
+    }
+
+    .mx-name-dataView .mx-name-textBox4 {
+        grid-column: 3;
+        grid-row: 3;
+    }
+
+    .mx-name-dataView .mx-name-textBox5 {
+        grid-column: 3;
+        grid-row: 4;
+    }
+
+    .mx-name-dataView .mx-name-datePicker1 {
+        bottom: -32px;
+    }
+
+    .mx-name-dataView .mx-name-textBox11 .form-control {
+        font-size: 13px;
+    }
+
+    .mx-name-dataView .mx-name-textBox6 .form-control {
+        font-size: 38px;
+    }
+
+    .mx-name-dataView .mx-name-textBox4 .control-label {
+        font-size: 10px;
+    }
+
+    .mx-name-layoutGrid3 {
+        min-height: 480px;
+        padding: 44px 24px;
+    }
+}
+
+@media (max-width: 520px) {
+    .mx-name-layoutGrid2 > .row > [class*="col-"]:last-child {
+        flex-basis: 96px;
+    }
+
+    .mx-name-dataView > .mx-dataview-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: 24px 28px 44px 24px 24px 28px 28px;
+        gap: 4px 8px;
+        padding: 10px;
+    }
+
+    .mx-name-dataView .mx-name-textBox2 {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .mx-name-dataView .mx-name-textBox3 {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .mx-name-dataView .mx-name-textBox6 {
+        grid-column: 1 / 3;
+        grid-row: 3;
+    }
+
+    .mx-name-dataView .mx-name-textBox12 {
+        grid-column: 1 / 3;
+        grid-row: 2;
+    }
+
+    .mx-name-dataView .mx-name-textBox11 {
+        grid-column: 1 / 3;
+        grid-row: 4;
+        border: 0 !important;
+    }
+
+    .mx-name-dataView .mx-name-textBox7 {
+        grid-column: 1 / 3;
+        grid-row: 5;
+    }
+
+    .mx-name-dataView .mx-name-textBox8 {
+        grid-column: 1;
+        grid-row: 6;
+    }
+
+    .mx-name-dataView .mx-name-textBox9 {
+        grid-column: 2;
+        grid-row: 6;
+    }
+
+    .mx-name-dataView .mx-name-textBox4 {
+        grid-column: 1;
+        grid-row: 7;
+    }
+
+    .mx-name-dataView .mx-name-textBox5 {
+        display: block;
+        grid-column: 2;
+        grid-row: 7;
+    }
+
+    .mx-name-dataView .mx-name-textBox6 .form-control {
+        font-size: 42px;
+    }
+
+    .mx-name-dataView .mx-name-datePicker1 {
+        bottom: -34px;
+    }
+}
+
+@media (max-width: 420px) {
+    .region-topbar .topbar-content,
+    .topbar-wrapper {
+        min-height: 56px;
+        padding: 0 12px;
+    }
+
+    .mx-name-layoutGrid2 > .row {
+        gap: 6px;
+    }
+
+    .mx-name-actionButton3 {
+        font-size: 13px;
+    }
+}

@@ -11,8 +11,8 @@
 /project-settings.user.json
 /javasource/*/proxies/
 /javasource/system/
-/**/node_modules/
-!/javascriptsource/**/node_modules/
+# Ignore Node.js dependencies, including nested dependencies
+**/node_modules/
 /nativemobile/builds/
 /vendorlib/temp/
 .DS_Store
